@@ -1,0 +1,41 @@
+.wrapper {
+  margin-bottom: var(--space-12);
+  max-width: 680px;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-react);
+  margin-bottom: var(--space-3);
+  padding: 0.2rem 0.6rem;
+  background: var(--color-react-soft);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-xs);
+}
+
+.title {
+  font-size: clamp(1.875rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}

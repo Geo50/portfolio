@@ -1,0 +1,80 @@
+:root {
+  /* Color Palette - Dark Obsidian Neutral System */
+  --bg-app: #08090d;
+  --bg-canvas: #0c0e14;
+  --bg-surface: #121620;
+  --bg-surface-elevated: #181e2c;
+  --bg-surface-hover: #1f273a;
+  --bg-glass: rgba(12, 14, 20, 0.78);
+  --bg-glass-card: rgba(18, 22, 32, 0.65);
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-medium: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --border-accent: rgba(56, 189, 248, 0.35);
+
+  /* Typography Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --text-muted: #475569;
+  --text-inverse: #090a0f;
+
+  /* Accent Colors */
+  --color-react: #38bdf8;
+  --color-react-glow: rgba(56, 189, 248, 0.18);
+  --color-react-soft: rgba(56, 189, 248, 0.08);
+
+  --color-indigo: #6366f1;
+  --color-indigo-glow: rgba(99, 102, 241, 0.18);
+  --color-indigo-soft: rgba(99, 102, 241, 0.08);
+
+  --color-emerald: #10b981;
+  --color-emerald-glow: rgba(16, 185, 129, 0.25);
+  --color-emerald-soft: rgba(16, 185, 129, 0.08);
+
+  /* Typography Fonts */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Border Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.55);
+  --shadow-card: 0 12px 36px -8px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 35px var(--color-react-glow);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 500ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --container-max-width: 1160px;
+  --header-height: 4.25rem;
+}

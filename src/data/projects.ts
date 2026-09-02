@@ -1,0 +1,48 @@
+import type { Project } from '../types/project';
+
+export const projectsData: Project[] = [
+  {
+    id: 'pulse-cloud-analytics',
+    title: 'Pulse Cloud Analytics',
+    description: 'Real-time SaaS dashboard with interactive telemetry graphs and widget grids.',
+    video: '/assets/projects/project-1.mp4',
+    technologies: ['React 19', 'TypeScript', 'Tailwind CSS', 'Vite'],
+    featured: true,
+    github: 'https://github.com/Geo50',
+    demo: 'https://pulse-analytics-demo.example.com',
+    metrics: '< 15ms frame budget',
+  },
+  {
+    id: 'nexus-collab-editor',
+    title: 'Nexus Collaborative Workspace',
+    description: 'High-performance collaborative workspace with optimistic state updates and live sync.',
+    video: '/assets/projects/project-2.mp4',
+    technologies: ['React', 'TypeScript', 'shadcn/ui', '.NET', 'C#'],
+    featured: true,
+    github: 'https://github.com/Geo50',
+    demo: 'https://nexus-workspace-demo.example.com',
+    metrics: '60 FPS render pipeline',
+  },
+  {
+    id: 'aura-design-system',
+    title: 'Aura UI Design System',
+    description: 'Accessible React component library with tokenized CSS variables and micro-animations.',
+    video: '/assets/projects/project-3.mp4',
+    technologies: ['React', 'TypeScript', 'Motion', 'CSS Modules'],
+    featured: true,
+    github: 'https://github.com/Geo50',
+    demo: 'https://aura-ui-demo.example.com',
+    metrics: 'WCAG AAA Compliant',
+  },
+  {
+    id: 'forge-pipeline-engine',
+    title: 'Forge Data Pipeline Engine',
+    description: 'Workflow automation builder connecting REST endpoints with an interactive node canvas.',
+    video: '/assets/projects/project-4.mp4',
+    technologies: ['React', 'TypeScript', 'C#', '.NET', 'PostgreSQL'],
+    featured: false,
+    github: 'https://github.com/Geo50',
+    demo: 'https://forge-engine-demo.example.com',
+    metrics: 'Sub-second dispatch',
+  },
+];

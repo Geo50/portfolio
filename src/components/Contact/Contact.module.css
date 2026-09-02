@@ -1,0 +1,206 @@
+.contactSection {
+  position: relative;
+}
+
+.contactWrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* MAIN EMAIL CARD */
+.emailCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-5);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.emailCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-react), transparent);
+}
+
+.emailIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  background: var(--color-react-soft);
+  border: 1px solid var(--border-accent);
+  color: var(--color-react);
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.15);
+}
+
+.emailTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.emailLabel {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.emailAddress {
+  font-size: clamp(1.15rem, 3vw, 1.45rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  word-break: break-all;
+}
+
+.emailActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.copyButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-medium);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.copyButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-strong);
+}
+
+.copiedSuccess {
+  background: var(--color-emerald-soft);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #6ee7b7;
+}
+
+.successIcon {
+  color: var(--color-emerald);
+}
+
+.sendEmailButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  background: var(--text-primary);
+  color: var(--bg-app);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.sendEmailButton:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* SOCIAL GRID */
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 640px) {
+  .socialGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.socialCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  text-decoration: none;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.socialCard:hover {
+  background: var(--bg-surface-elevated);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-sm);
+}
+
+.socialCardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--color-react);
+  flex-shrink: 0;
+}
+
+.socialCardInfo {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.socialCardTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.socialCardHandle {
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+}
+
+.cardArrow {
+  color: var(--text-tertiary);
+  transition:
+    transform var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.socialCard:hover .cardArrow {
+  color: var(--color-react);
+  transform: translate(2px, -2px);
+}

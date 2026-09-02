@@ -1,0 +1,250 @@
+.skillsSection {
+  position: relative;
+}
+
+/* REACT SPOTLIGHT CARD */
+.reactSpotlightCard {
+  background: linear-gradient(145deg, rgba(20, 27, 42, 0.95) 0%, rgba(12, 16, 25, 0.95) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6) var(--space-8);
+  margin-bottom: var(--space-8);
+  box-shadow:
+    0 16px 40px -10px rgba(0, 0, 0, 0.6),
+    0 0 35px rgba(56, 189, 248, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.reactSpotlightCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-react), transparent);
+}
+
+.spotlightHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.reactBadgeGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.reactIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-md);
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: var(--color-react);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+  flex-shrink: 0;
+}
+
+.reactSpinIcon {
+  animation: spinSlow 20s linear infinite;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spotlightSubtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-react);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.15rem;
+}
+
+.sparkleIcon {
+  color: var(--color-react);
+}
+
+.spotlightTitle {
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.primaryStatusTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  background: var(--color-react-soft);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-react);
+}
+
+/* Ecosystem Row */
+.ecosystemRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.ecosystemTag {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.ecosystemTag:hover {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: var(--border-accent);
+  color: var(--color-react);
+}
+
+/* CATEGORIZED SKILLS GRID */
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+}
+
+@media (max-width: 768px) {
+  .categoriesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.categoryCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.categoryCard:hover {
+  background: var(--bg-surface-elevated);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-sm);
+}
+
+.categoryHeader {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.categoryIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--color-react);
+  flex-shrink: 0;
+}
+
+.categoryTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.skillItemList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.skillPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.65rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition:
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.skillPill:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--border-medium);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.primarySkillPill {
+  background: var(--color-react-soft);
+  border-color: var(--border-accent);
+  color: var(--color-react);
+  font-weight: 600;
+}
+
+.primarySkillPill:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: var(--color-react);
+  color: #ffffff;
+}
+
+.skillDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.tagBadge {
+  font-size: 0.65rem;
+  padding: 0.1rem 0.3rem;
+  border-radius: var(--radius-xs);
+  background: var(--color-react);
+  color: var(--bg-app);
+  font-weight: 700;
+  margin-left: 0.2rem;
+}
