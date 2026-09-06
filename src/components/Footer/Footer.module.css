@@ -1,110 +1,31 @@
 .footer {
-  border-top: 1px solid var(--border-subtle);
-  background: var(--bg-app);
-  padding-top: var(--space-12);
-  padding-bottom: var(--space-12);
   position: relative;
-  z-index: 2;
+  z-index: 1;
+  border-top: 1px solid var(--border-medium);
+  padding: var(--space-8) 0;
+  background: rgba(8, 9, 13, 0.6);
 }
 
-.footerContainer {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-}
-
-.brandRow {
+.inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--space-4);
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.brandMonogram {
-  display: flex;
-  align-items: center;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 0.9rem;
-  padding: 0.2rem 0.55rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-medium);
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
-}
-
-.brandBracket {
-  color: var(--color-react);
-}
-
-.brandText {
-  color: var(--text-primary);
-  margin: 0 1px;
-}
-
-.brandName {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-}
-
-.builtWith {
-  font-size: 0.85rem;
-  color: var(--text-tertiary);
-  font-family: var(--font-mono);
-}
-
-.highlight {
-  color: var(--color-react);
-}
-
-.bottomRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--space-4);
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--border-subtle);
-}
-
-.copyright {
-  font-size: 0.8125rem;
+.copy {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
   color: var(--text-tertiary);
 }
 
-.backToTopButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.8125rem;
+.toTop {
+  font-size: 0.8rem;
   font-weight: 500;
+  letter-spacing: 0.08em;
   color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
-  padding: 0.35rem 0.75rem;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 
-.backToTopButton:hover {
+.toTop:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--border-medium);
-}
-
-.topIcon {
-  transition: transform var(--transition-fast);
-}
-
-.backToTopButton:hover .topIcon {
-  transform: translateY(-2px);
 }

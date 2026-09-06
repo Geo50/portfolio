@@ -1,6 +1,17 @@
-@import './variables.css';
+@import "./variables.css";
 
-/* Modern CSS Reset */
+/* ─── Global Cursor Suppression (Desktop / Fine Pointer) ─── */
+@media (pointer: fine) {
+  *,
+  *::before,
+  *::after,
+  html,
+  body {
+    cursor: none !important;
+  }
+}
+
+/* ─── Reset ─────────────────────────────────────── */
 *,
 *::before,
 *::after {
@@ -23,14 +34,14 @@ body {
   color: var(--text-primary);
   font-family: var(--font-sans);
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.65;
   overflow-x: hidden;
   position: relative;
 }
 
-/* Custom Scrollbar */
+/* ─── Scrollbar ─────────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -38,26 +49,27 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.18);
 }
 
-/* Selection Highlight */
+/* ─── Selection ─────────────────────────────────── */
 ::selection {
-  background: rgba(56, 189, 248, 0.25);
+  background: rgba(138, 180, 212, 0.2);
   color: #ffffff;
 }
 
-/* Focus Visible */
+/* ─── Focus ─────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid var(--color-react);
+  outline: 1px solid rgba(138, 180, 212, 0.5);
   outline-offset: 3px;
 }
 
+/* ─── Base Elements ─────────────────────────────── */
 a {
   color: inherit;
   text-decoration: none;
@@ -83,7 +95,13 @@ svg {
   max-width: 100%;
 }
 
-/* Main Container Layout */
+/* ─── App Layout ────────────────────────────────── */
+.app-layout {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ─── Container ─────────────────────────────────── */
 .container {
   width: 100%;
   max-width: var(--container-max-width);
@@ -100,48 +118,7 @@ svg {
   }
 }
 
-/* Subtle Ambient Background Layer */
-.ambient-bg {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.ambient-grid {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 70%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 70%, transparent 100%);
-}
-
-.ambient-glow-top {
-  position: absolute;
-  top: -150px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 700px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.03) 50%, transparent 70%);
-  filter: blur(60px);
-}
-
-.ambient-glow-side {
-  position: absolute;
-  top: 45%;
-  right: -200px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
-  filter: blur(80px);
-}
-
-/* Section Spacing Utility */
+/* ─── Section Utility ───────────────────────────── */
 .section {
   position: relative;
   z-index: 1;
@@ -156,7 +133,7 @@ svg {
   }
 }
 
-/* Reduced Motion Support */
+/* ─── Reduced Motion ────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

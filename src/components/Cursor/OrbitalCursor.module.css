@@ -1,0 +1,33 @@
+.cursorContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* Clicks always pass through to buttons! */
+  z-index: 99999;
+  opacity: 0;
+  will-change: transform;
+  transition: opacity 0.25s ease;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.cursorSvg {
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.orbitTrack {
+  transition: stroke 0.3s ease;
+}
+
+/* ─── Hover State: Expands gracefully when over buttons/links ─── */
+.hovered .cursorSvg {
+  transform: scale(1.45);
+}
+
+.hovered .orbitTrack {
+  stroke: rgba(255, 255, 255, 0.95);
+  stroke-dasharray: none; /* Solid ring on hover */
+}

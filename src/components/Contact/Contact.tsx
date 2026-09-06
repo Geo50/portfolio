@@ -1,123 +1,127 @@
-import React, { useState } from 'react';
-import { motion } from 'motion/react';
-import { Mail, Copy, Check, ArrowUpRight } from 'lucide-react';
-import { developerData } from '../../data/developer';
-import { GithubIcon, LinkedinIcon } from '../UI/Icons';
-import { SectionHeading } from '../UI/SectionHeading';
-import styles from './Contact.module.css';
+import React, { useState } from "react";
+import { motion } from "motion/react";
+import { Mail, Copy, Check, ArrowUpRight } from "lucide-react";
+import { developerData } from "../../data/developer";
+import { GithubIcon, LinkedinIcon } from "../UI/Icons";
+import styles from "./Contact.module.css";
+
+const fadeUp = (delay = 0) => ({
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] },
+  },
+});
 
 export const Contact: React.FC = () => {
-  const [copied, setCopied] = useState<boolean>(false);
+  const [copied, setCopied] = useState(false);
 
-  const handleCopyEmail = async () => {
+  const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(developerData.email);
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch {
-      setCopied(false);
+      /* clipboard unavailable */
     }
   };
 
   return (
-    <section id="contact" className={`section ${styles.contactSection}`}>
+    <section id="contact" className={`section ${styles.section}`}>
+      {/* Amber warmth glow — arrival */}
+      <div className={styles.amberGlow} aria-hidden="true" />
+
       <div className="container">
-        <SectionHeading
-          eyebrow="Get In Touch"
-          title="Let's build something useful."
-          align="center"
-        />
-
-        <div className={styles.contactWrapper}>
-          {/* Main Direct Email Card */}
-          <motion.div
-            className={styles.emailCard}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
+        <div className={styles.wrapper}>
+          <motion.span
+            className={styles.sectionLabel}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={fadeUp()}
           >
-            <div className={styles.emailIconWrapper}>
-              <Mail size={24} className={styles.emailIcon} />
-            </div>
+            04 / Contact
+          </motion.span>
 
-            <div className={styles.emailTextGroup}>
-              <span className={styles.emailAddress}>{developerData.email}</span>
-            </div>
+          <motion.h2
+            className={styles.heading}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={fadeUp(0.06)}
+          >
+            Let's build something.
+          </motion.h2>
 
-            <div className={styles.emailActions}>
-              <button
-                type="button"
-                className={`${styles.copyButton} ${copied ? styles.copiedSuccess : ''}`}
-                onClick={handleCopyEmail}
-                aria-label="Copy email address"
-              >
-                {copied ? (
-                  <>
-                    <Check size={15} className={styles.successIcon} />
-                    <span>Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy size={15} />
-                    <span>Copy Email</span>
-                  </>
-                )}
-              </button>
+          {/* Email */}
+          <motion.div
+            className={styles.emailRow}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            variants={fadeUp(0.12)}
+          >
+            <a
+              href={`mailto:${developerData.email}`}
+              className={styles.emailAddress}
+            >
+              <Mail size={16} className={styles.emailIcon} />
+              {developerData.email}
+            </a>
 
-              <a
-                href={`mailto:${developerData.email}`}
-                className={styles.sendEmailButton}
-                aria-label="Send email via mail client"
-              >
-                <span>Compose Mail</span>
-                <ArrowUpRight size={15} />
-              </a>
-            </div>
+            <button
+              type="button"
+              className={`${styles.copyBtn} ${copied ? styles.copyBtnDone : ""}`}
+              onClick={handleCopy}
+              aria-label="Copy email address"
+            >
+              {copied ? (
+                <>
+                  <Check size={13} />
+                  <span>Copied</span>
+                </>
+              ) : (
+                <>
+                  <Copy size={13} />
+                  <span>Copy</span>
+                </>
+              )}
+            </button>
           </motion.div>
 
-          {/* Social Channels Row */}
-          <div className={styles.socialGrid}>
-            <motion.a
+          {/* Social links */}
+          <motion.div
+            className={styles.socialRow}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            variants={fadeUp(0.18)}
+          >
+            <a
               href={developerData.github}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.socialCard}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.4, delay: 0.08, ease: 'easeOut' }}
-              whileHover={{ y: -2 }}
+              className={styles.socialLink}
+              aria-label="GitHub profile"
             >
-              <div className={styles.socialCardIcon}>
-                <GithubIcon size={20} />
-              </div>
-              <div className={styles.socialCardInfo}>
-                <span className={styles.socialCardTitle}>GitHub</span>
-              </div>
-              <ArrowUpRight size={16} className={styles.cardArrow} />
-            </motion.a>
+              <GithubIcon size={15} />
+              <span>GitHub</span>
+              <ArrowUpRight size={12} className={styles.linkArrow} />
+            </a>
 
-            <motion.a
+            <a
               href={developerData.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.socialCard}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.4, delay: 0.16, ease: 'easeOut' }}
-              whileHover={{ y: -2 }}
+              className={styles.socialLink}
+              aria-label="LinkedIn profile"
             >
-              <div className={styles.socialCardIcon}>
-                <LinkedinIcon size={20} />
-              </div>
-              <div className={styles.socialCardInfo}>
-                <span className={styles.socialCardTitle}>LinkedIn</span>
-              </div>
-              <ArrowUpRight size={16} className={styles.cardArrow} />
-            </motion.a>
-          </div>
+              <LinkedinIcon size={15} />
+              <span>LinkedIn</span>
+              <ArrowUpRight size={12} className={styles.linkArrow} />
+            </a>
+          </motion.div>
         </div>
       </div>
     </section>

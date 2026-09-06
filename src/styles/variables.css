@@ -1,44 +1,54 @@
 :root {
-  /* Color Palette - Dark Obsidian Neutral System */
+  /* ─── Base Palette ─────────────────────────────── */
   --bg-app: #08090d;
-  --bg-canvas: #0c0e14;
-  --bg-surface: #121620;
-  --bg-surface-elevated: #181e2c;
-  --bg-surface-hover: #1f273a;
-  --bg-glass: rgba(12, 14, 20, 0.78);
-  --bg-glass-card: rgba(18, 22, 32, 0.65);
+  --bg-canvas: #09090e;
+  --bg-surface: #0e111a;
+  --bg-surface-elevated: #141824;
+  --bg-glass: rgba(8, 9, 13, 0.92);
+  --bg-glass-card: rgba(14, 17, 26, 0.75);
 
-  /* Borders & Dividers */
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-medium: rgba(255, 255, 255, 0.12);
-  --border-strong: rgba(255, 255, 255, 0.2);
-  --border-accent: rgba(56, 189, 248, 0.35);
+  /* ─── Borders ──────────────────────────────────── */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --border-strong: rgba(255, 255, 255, 0.28);
+  --border-accent: rgba(180, 210, 235, 0.35);
 
-  /* Typography Colors */
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-tertiary: #64748b;
-  --text-muted: #475569;
-  --text-inverse: #090a0f;
+  /* ─── Typography Colors (High Contrast & Legible) ─ */
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #08090d;
 
-  /* Accent Colors */
-  --color-react: #38bdf8;
-  --color-react-glow: rgba(56, 189, 248, 0.18);
-  --color-react-soft: rgba(56, 189, 248, 0.08);
+  /* ─── Accent (cool silver-blue) ────────────────── */
+  --color-accent: #93c5fd;
+  --color-accent-glow: rgba(147, 197, 253, 0.18);
+  --color-accent-soft: rgba(147, 197, 253, 0.08);
 
-  --color-indigo: #6366f1;
-  --color-indigo-glow: rgba(99, 102, 241, 0.18);
-  --color-indigo-soft: rgba(99, 102, 241, 0.08);
+  /* ─── Silver (star / edge light) ───────────────── */
+  --color-silver: #e2e8f0;
+  --color-silver-dim: rgba(226, 232, 240, 0.75);
+  --color-silver-ghost: rgba(226, 232, 240, 0.12);
 
-  --color-emerald: #10b981;
-  --color-emerald-glow: rgba(16, 185, 129, 0.25);
-  --color-emerald-soft: rgba(16, 185, 129, 0.08);
+  /* ─── Amber (Contact warmth — use sparingly) ───── */
+  --color-amber: rgba(255, 158, 44, 0.06);
+  --color-amber-subtle: rgba(255, 158, 44, 0.035);
 
-  /* Typography Fonts */
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  /* ─── Constellation ────────────────────────────── */
+  --color-constellation-line: rgba(255, 255, 255, 0.09);
+  --color-constellation-node: rgba(255, 255, 255, 0.35);
+  --color-constellation-node-active: rgba(200, 220, 240, 0.85);
 
-  /* Spacing */
+  /* ─── Scroll-driven (set by JS) ────────────────── */
+  --scroll-y: 0;
+  --scroll-progress: 0;
+
+  /* ─── Typography ───────────────────────────────── */
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* ─── Spacing ──────────────────────────────────── */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -53,28 +63,27 @@
   --space-24: 6rem;
   --space-32: 8rem;
 
-  /* Border Radii */
-  --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
-  --radius-xl: 24px;
+  /* ─── Border Radius ────────────────────────────── */
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.55);
-  --shadow-card: 0 12px 36px -8px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 35px var(--color-react-glow);
+  /* ─── Shadows ──────────────────────────────────── */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 20px 56px rgba(0, 0, 0, 0.7);
+  --shadow-card: 0 12px 40px -6px rgba(0, 0, 0, 0.75);
 
-  /* Transitions */
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-spring: 350ms cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-slow: 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  /* ─── Transitions ──────────────────────────────── */
+  --transition-fast: 140ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 240ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 420ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 600ms cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Layout */
-  --container-max-width: 1160px;
-  --header-height: 4.25rem;
+  /* ─── Layout ───────────────────────────────────── */
+  --container-max-width: 1140px;
+  --header-height: 3.75rem;
 }
