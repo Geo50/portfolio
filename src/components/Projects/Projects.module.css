@@ -1,265 +1,209 @@
-.projectsSection {
+.section {
   position: relative;
-  background: linear-gradient(180deg, transparent 0%, rgba(18, 22, 32, 0.5) 50%, transparent 100%);
 }
 
+.sectionLabel {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-5);
+}
+
+.heading {
+  font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-12);
+}
+
+/* Card grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-  }
-}
-
-/* CARD CONTAINER */
+/* Card */
 .card {
-  display: flex;
-  flex-direction: column;
-  background: var(--bg-surface);
+  position: relative;
+  background: var(--bg-glass-card);
   border: 1px solid var(--border-medium);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition:
-    transform var(--transition-spring),
     border-color var(--transition-normal),
-    box-shadow var(--transition-spring),
-    background-color var(--transition-normal);
-  position: relative;
+    box-shadow var(--transition-normal),
+    transform var(--transition-normal);
 }
 
-.cardHovered {
-  transform: translateY(-5px);
-  border-color: rgba(56, 189, 248, 0.4);
-  box-shadow:
-    0 20px 45px -12px rgba(0, 0, 0, 0.7),
-    0 0 25px rgba(56, 189, 248, 0.12);
-  background: var(--bg-surface-elevated);
+.card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
 }
 
-/* VIDEO WRAPPER */
-.videoWrapper {
+/* Featured: left accent */
+.cardFeatured {
+  border-left: 2px solid var(--color-accent);
+}
+
+/* Video preview */
+.preview {
   position: relative;
-  width: 100%;
   aspect-ratio: 16 / 9;
-  background: #06070a;
   overflow: hidden;
-  border-bottom: 1px solid var(--border-subtle);
+  background: #090910;
 }
 
 .video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition:
-    filter 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+  filter: grayscale(100%) brightness(0.75);
+  transition: filter 0.5s ease;
 }
 
-.videoGrayscale {
-  filter: grayscale(100%) brightness(0.65) contrast(1.1);
-  transform: scale(1);
+.previewHovered .video {
+  filter: grayscale(0%) brightness(0.9);
 }
 
-.videoActive {
-  filter: grayscale(0%) brightness(1) contrast(1);
-  transform: scale(1.02);
-}
-
-/* Dark Overlay */
-.videoOverlay {
+.previewOverlay {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  background: linear-gradient(180deg, rgba(8, 9, 13, 0.1) 0%, rgba(8, 9, 13, 0.6) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(9, 9, 16, 0.15) 0%,
+    rgba(9, 9, 16, 0.75) 100%
+  );
   transition: opacity 0.4s ease;
 }
 
-.overlayVisible {
-  opacity: 1;
+.previewOverlayFaded {
+  opacity: 0.25;
 }
 
-.overlayFaded {
-  opacity: 0.15;
-}
-
-/* Video Badge */
-.videoBadge {
-  position: absolute;
-  bottom: var(--space-3);
-  right: var(--space-3);
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.3rem 0.65rem;
-  background: rgba(12, 14, 20, 0.85);
-  backdrop-filter: blur(8px);
-  border: 1px solid var(--border-medium);
-  border-radius: var(--radius-full);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  pointer-events: none;
-  transition: all var(--transition-fast);
-}
-
-.playIcon {
-  color: var(--color-react);
-}
-
-.playIconActive {
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.25);
-  }
-}
-
-.featuredBadge {
-  position: absolute;
-  top: var(--space-3);
-  left: var(--space-3);
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  padding: 0.25rem 0.6rem;
-  background: rgba(56, 189, 248, 0.18);
-  border: 1px solid rgba(56, 189, 248, 0.4);
-  backdrop-filter: blur(8px);
-  border-radius: var(--radius-xs);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--color-react);
-}
-
-/* CARD CONTENT */
-.cardContent {
+/* Content */
+.content {
   padding: var(--space-6);
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  gap: var(--space-4);
 }
 
-.cardHeader {
+.contentTop {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  gap: var(--space-2);
-  margin-bottom: var(--space-2);
+}
+
+.projectNum {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+}
+
+.metric {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  padding: 2px 8px;
 }
 
 .projectTitle {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
-.metricBadge {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--color-react);
-  background: var(--color-react-soft);
-  padding: 0.15rem 0.45rem;
-  border-radius: var(--radius-xs);
-  border: 1px solid var(--border-accent);
-  white-space: nowrap;
-}
-
-.projectDescription {
-  font-size: 0.9375rem;
+.projectDesc {
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: var(--space-5);
-  flex-grow: 1;
+  line-height: 1.65;
 }
 
-/* TECH LIST */
+/* Tech tags */
 .techList {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-bottom: var(--space-6);
 }
 
 .techTag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  padding: 0.2rem 0.55rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-medium);
   border-radius: var(--radius-xs);
-  color: var(--text-tertiary);
-  transition: all var(--transition-fast);
+  padding: 3px 9px;
+  white-space: nowrap;
 }
 
-.reactTechTag {
-  background: var(--color-react-soft);
-  border-color: var(--border-accent);
-  color: var(--color-react);
-  font-weight: 500;
-}
-
-/* ACTION ROW */
-.actionRow {
+/* Actions */
+.actions {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-5);
+  margin-top: var(--space-1);
   padding-top: var(--space-4);
   border-top: 1px solid var(--border-subtle);
 }
 
-.linkButton {
+.actionLink {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 600;
+  gap: var(--space-2);
+  font-size: 0.82rem;
+  font-weight: 500;
   color: var(--text-secondary);
-  text-decoration: none;
-  padding: 0.45rem 0.85rem;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
-  transition: all var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 
-.linkButton:hover {
+.actionLink:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--border-medium);
 }
 
-.primaryLinkButton {
-  background: rgba(56, 189, 248, 0.08);
-  color: var(--color-react);
-  border-color: var(--border-accent);
+.actionLinkPrimary {
+  color: var(--color-accent);
+  font-weight: 600;
   margin-left: auto;
 }
 
-.primaryLinkButton:hover {
-  background: rgba(56, 189, 248, 0.16);
-  border-color: var(--color-react);
+.actionLinkPrimary:hover {
   color: #ffffff;
 }
 
-.arrowIcon {
-  transition: transform var(--transition-fast);
+.actionArrow {
+  opacity: 0.7;
 }
 
-.linkButton:hover .arrowIcon {
-  transform: translate(2px, -2px);
+/* Responsive */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding: var(--space-5);
+  }
 }
