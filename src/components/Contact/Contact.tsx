@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 import { Mail, Copy, Check, ArrowUpRight } from "lucide-react";
 import { developerData } from "../../data/developer";
 import { GithubIcon, LinkedinIcon } from "../UI/Icons";
 import styles from "./Contact.module.css";
 
-const fadeUp = (delay = 0) => ({
+const fadeUp = (delay = 0): Variants => ({
   hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
